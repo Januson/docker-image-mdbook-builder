@@ -4,7 +4,6 @@ orbs:
   docker: circleci/docker@2.1.3
 
 workflows:
-  version: 2
   build:
     jobs:
       - build-and-push:
@@ -16,6 +15,9 @@ jobs:
   build-and-push:
     docker:
       - image: docker:git
+        auth:
+          username: $DOCKER_LOGIN
+          password: $DOCKER_PASSWORD
     steps:
       - checkout
       - setup_remote_docker
