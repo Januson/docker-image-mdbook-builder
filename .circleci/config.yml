@@ -21,6 +21,9 @@ jobs:
           username: $DOCKER_LOGIN
           password: $DOCKER_PASSWORD
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "32:1e:50:ac:53:31:84:21:f6:07:49:51:91:f2:32:10"
       - checkout
       - setup_remote_docker
       - docker/check
