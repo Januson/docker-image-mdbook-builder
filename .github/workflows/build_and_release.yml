@@ -40,10 +40,10 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          push: true
           tags: |
             januson/mdbook-builder:latest 
             ghcr.io/januson/mdbook-builder:latest
-          push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
