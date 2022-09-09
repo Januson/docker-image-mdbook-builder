@@ -16,7 +16,7 @@ workflows:
 jobs:
   build-and-push:
     docker:
-      - image: cimg/base:latest
+      - image: cimg/base:current
         auth:
           username: $DOCKER_LOGIN
           password: $DOCKER_PASSWORD
