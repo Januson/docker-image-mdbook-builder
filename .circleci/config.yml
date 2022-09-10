@@ -29,9 +29,11 @@ jobs:
       - docker/check
       - docker/build:
           image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
+          tag: latest
       - docker/push:
           digest-path: /tmp/digest.txt
           image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
+          tag: latest
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
