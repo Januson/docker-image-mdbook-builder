@@ -1,8 +1,5 @@
-FROM rust:alpine AS builder
+FROM circleci/rust:latest
 
-RUN apk update \
-    && apk upgrade \
-	&& apk add --no-cache bash ca-certificates git gzip libc-dev openssh openssh-client tar \
-    && cargo install mdbook
+RUN cargo install mdbook
 
 CMD ["/bin/sh"]
